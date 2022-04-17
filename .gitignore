@@ -1,3 +1,8 @@
+# prettier, git
+prettierrc.json
+.gitignore
+
+
 # Logs
 logs
 *.log

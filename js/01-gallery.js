@@ -24,9 +24,16 @@ gallery.insertAdjacentHTML('beforeend', galleryItemsMarkUp);
 gallery.addEventListener('click', e => {
   e.preventDefault();
 
-  e.currentTarget.onclick = () => {
-    basicLightbox.create(`<img  src="${e.target.getAttribute('data-source')}">`).show();
-  };
+  const instance = basicLightbox.create(`<img  src="${e.target.getAttribute('data-source')}">`);
+  instance.show();
 
-  e.currentTarget.removeAttribute('onclick');
+  document.addEventListener('keydown', event => {
+    if (event.code === 'Escape') {
+      document.removeEventListener('keydown', event);
+
+      instance.close();
+    }
+  });
+
+  gallery.removeEventListener('click', e);
 });

@@ -17,12 +17,3 @@ const gallery = document.querySelector('ul.gallery');
 
 gallery.insertAdjacentHTML('beforeend', galleryLightboxMarkUp);
 const galleryLightbox = new SimpleLightbox('.gallery a', { captionDelay: 250 });
-
-gallery.addEventListener('click', e => {
-  galleryLightbox.on('show.simplelightbox', function () {
-    // do something…
-  });
-
-  galleryLightbox.close();
-  gallery.removeEventListener('click', e);
-});
